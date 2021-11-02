@@ -597,7 +597,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waitTime: 10
   waitTimeFadeOut: 5
-  sceneDestinationName: MainMenu
+  sceneDestinationName: PSF
   fade: {fileID: 1282056458}
 --- !u!4 &816076659
 Transform:
