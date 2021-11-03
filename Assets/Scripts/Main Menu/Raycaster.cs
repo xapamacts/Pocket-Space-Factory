@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class Raycaster : MonoBehaviour
 {
      public Animator anim;
      private NavMeshAgent agente;
+    public string sceneDestinationName;
 
     void Start()
     {
@@ -43,6 +45,17 @@ public class Raycaster : MonoBehaviour
         if (other.gameObject.CompareTag("Interactable"))
         {
             anim.SetBool("run",false);
+            StartCoroutine(Wait());
+            
+        }
+    }
+
+    private IEnumerator Wait()
+    {
+        if (sceneDestinationName != "")
+        {
+            yield return new WaitForSeconds(2);
+            SceneManager.LoadScene(sceneDestinationName);
         }
     }
 
