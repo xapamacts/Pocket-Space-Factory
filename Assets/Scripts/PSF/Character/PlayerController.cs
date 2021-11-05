@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
     public CharacterController controller;
     public Transform cam;
     public Joystick joystick;
+    public GameObject joystickButtonBox;
 
     public float speed = 6f;
     public float gravity = -9.8f;
@@ -82,6 +84,15 @@ public class PlayerController : MonoBehaviour
         }else{
             GetComponent<Animator>().SetBool("walking", false);
             GetComponent<Animator>().SetBool("carrying", false);
+        }
+
+        if(ObjectToPickUp != null)
+        {
+            joystickButtonBox.SetActive(true);
+        }
+        else
+        {
+            joystickButtonBox.SetActive(false);
         }
     }
 
