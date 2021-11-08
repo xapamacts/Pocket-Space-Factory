@@ -12,13 +12,13 @@ public class GuiManagerWorld : MonoBehaviour
 
     void Start()
     {
-        this.UI.rectTransform.localScale=new Vector3(1,1,1);
+        this.UI.rectTransform.localScale = new Vector3(1,1,1);
     }
 
     
     void Update()
     {
-        this.canvas.rotation=this.mainCamera.rotation;
-        this.canvas.localScale=Vector3.one*Vector3.Distance(this.mainCamera.position, this.canvas.position)/10; 
+        this.canvas.rotation = this.mainCamera.rotation;
+        this.canvas.localScale = Vector3.one * Vector3.Distance(this.mainCamera.position, this.canvas.position)/10; 
     }
 }

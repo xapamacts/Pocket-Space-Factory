@@ -46,7 +46,6 @@ public class Raycaster : MonoBehaviour
         {
             anim.SetBool("run",false);
             StartCoroutine(Wait());
-            
         }
     }
 
