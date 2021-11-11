@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1274858060233216113}
   - component: {fileID: 1274858060233216112}
   - component: {fileID: 1274858060233216115}
+  - component: {fileID: 4492504599866762157}
   m_Layer: 0
   m_Name: RedBox
   m_TagString: Untagged
@@ -62,6 +63,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPickable: 1
+--- !u!114 &4492504599866762157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274858060233216114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd2fb14e78eb547438a9429c8e55438c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light: {fileID: 0}
+  timeOff: 1
+  timeOn: 1
+  destructionTime: 3
 --- !u!1 &7908447513143158385
 GameObject:
   m_ObjectHideFlags: 0

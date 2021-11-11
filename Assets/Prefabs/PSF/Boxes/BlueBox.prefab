@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 5188836593037537964}
   - component: {fileID: 5188836593037537965}
   - component: {fileID: 5188836593037537966}
+  - component: {fileID: -6934019726556440039}
   m_Layer: 0
   m_Name: BlueBox
   m_TagString: Untagged
@@ -158,3 +159,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPickable: 1
+--- !u!114 &-6934019726556440039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5188836593037537967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd2fb14e78eb547438a9429c8e55438c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light: {fileID: 0}
+  timeOff: 1
+  timeOn: 1
+  destructionTime: 3
