@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     {
        Global.score = 0;
        Global.maxTime = 0;
-       LoadLevel(1);
+       LoadLevel(Global.level);
  
        //Providional
        StrtGame();
@@ -36,6 +36,10 @@ public class GameManager : MonoBehaviour
 
    public void LoadLevel(int num)
    {
+       // 1 - red box
+       // 2 - Yellow box
+       // 3 - blue box
+
        Global.requestBox.Clear();
        if (num == 1) 
        {
@@ -45,6 +49,10 @@ public class GameManager : MonoBehaviour
          Global.machine2BoxTime = 10;
          Global.machine2accumulatedBoxesLimit = 3; 
        } 
+       if (num == 2)
+        {
+            //TO DO
+        }
        actualBox = 0;
        totalBoxes = Global.requestBox.Count;
        actualBoxType = Global.requestBox[actualBox];
