@@ -67,4 +67,18 @@ public class GameManager : MonoBehaviour
        isPlaying = true; 
    }
 
+    public void UpdateBox()
+    {
+        actualBox++;
+        if(actualBox < totalBoxes)
+        {
+            actualBoxType = Global.requestBox[actualBox];
+            Global.score+=1;
+        }else
+        {
+            Debug.Log("victory");
+        }
+
+    }
+
 }

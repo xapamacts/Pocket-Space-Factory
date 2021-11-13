@@ -17,7 +17,7 @@ public class Machine2 : MonoBehaviour
     [Header("State")]
     public GameObject box;              //Objeto a instanciar.
     public Transform spawnPosition;     //Punto de aparicion de las cajas.
-    public GameObject parentObject;     //GameObject que será el padre de todas las cajas para que quede ordenado.
+    public GameObject parentObject;     //GameObject que serï¿½ el padre de todas las cajas para que quede ordenado.
     public bool isWorking;              //Determina si la maquina 2 esta en funcionamiento
     public int accumulatedBoxes;        //Cajas acumuladas en ESTE MOMENTO;
     public int accumulatedBoxesLimt;    //Limite de cajas que puedo cumular en la maquina.
@@ -66,7 +66,7 @@ public class Machine2 : MonoBehaviour
         isWorking = true;
     }
 
-    private void UpdateTextInfo()
+    public void UpdateTextInfo()
     { 
        boxesAcc.GetComponent<Text>().text  = accumulatedBoxes.ToString();
        timeNextBox.GetComponent<Text>().text  = totalTime.ToString();
@@ -118,7 +118,6 @@ public class Machine2 : MonoBehaviour
         if(accumulatedBoxes <  Global.machine2accumulatedBoxesLimit)
         {
             Instantiate(box, spawnPosition.transform.position, Quaternion.identity, parentObject.transform);
-            accumulatedBoxes++;
         }
     }
 }
