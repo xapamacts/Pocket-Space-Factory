@@ -6,17 +6,25 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-   [Header("State")]
-   public bool isPlaying;           //Determina si estamos jugando o no. Hace referencia a cuando ponemos pause.
-   public int actualLevel;          //Nivel actual.
+    [Header("UI")]
+    public GameObject scoreText;
+
+    [Header("UI Boxes")]
+    public GameObject boxLevelFail;
+    public GameObject boxLevelSuccess;
+    public GameObject boxGameEnd;
+
+    [Header("State")]
+    public bool isPlaying;           //Determina si estamos jugando o no. Hace referencia a cuando ponemos pause.
+    public int actualLevel;          //Nivel actual.
    
-   [Header("Machines")]
-   public int totalBoxes;
-   public int actualBox;
-   public int actualBoxType;
+    [Header("Machines")]
+    public int totalBoxes;
+    public int actualBox;
+    public int actualBoxType;
 
 
-   private Machine2 machine2;
+    private Machine2 machine2;
     
    private void Awake() 
     {
