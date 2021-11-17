@@ -10,6 +10,8 @@ TagManager:
   - Play
   - SFX
   - music
+  - BoxDestroyer
+  - Box2
   layers:
   - Default
   - TransparentFX
@@ -17,7 +19,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Wall
   - 
   - 
   - 

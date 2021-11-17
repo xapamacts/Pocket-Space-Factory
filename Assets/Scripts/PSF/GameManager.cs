@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
 
     [Header("State")]
     public bool isPlaying;           //Determina si estamos jugando o no. Hace referencia a cuando ponemos pause.
-    public int actualLevel;          //Nivel actual.
+    public static int actualLevel;          //Nivel actual.
    
     [Header("Machines")]
     public int totalBoxes;
@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
        Global.score = 0;
        Global.maxTime = 0;
        LoadLevel(Global.level);
- 
+
        //Providional
        StrtGame();
     }
@@ -88,5 +88,4 @@ public class GameManager : MonoBehaviour
         }
 
     }
-
 }
