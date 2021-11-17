@@ -90,10 +90,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7669e2bbba1e1b445af5a99bd11683ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxForce: 5500
-  minForce: 2000
+  maxForce: 2650
+  minForce: 1500
   forceDirectionVector: {x: 1, y: 3, z: 0}
-  rejectionZone: {fileID: 0}
 --- !u!65 &-4984010984987331606
 BoxCollider:
   m_ObjectHideFlags: 0
