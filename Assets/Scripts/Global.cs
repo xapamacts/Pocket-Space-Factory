@@ -6,6 +6,7 @@ public static class Global
 {
     //Geberal
     public static bool canAudioPlay = true;
+    public static bool canSFXPlay = true;
 
     //Game
     public static int score;

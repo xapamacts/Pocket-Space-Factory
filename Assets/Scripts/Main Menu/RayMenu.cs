@@ -1,24 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.SceneManagement;
 
-public class Raycaster : MonoBehaviour
+public class RayMenu : MonoBehaviour
 {
+    public MenuManager menuManager;
     public Animator anim;
+
     private NavMeshAgent agente;
-    public GameObject OptionsCanvas;
-    public GameObject ExitCanvas;
-    public GameObject  PlayCanvas;
-    public bool isTouching = false;
-    public string sceneDestinationName;
+    private Vector3 initialPoint;
+    private bool isReturningInitialPoint;
 
     void Start()
     {
-        
         anim.SetBool("run",false);
-        agente=GetComponent<NavMeshAgent>();
+        agente = GetComponent<NavMeshAgent>();
+        initialPoint = transform.position;
+        isReturningInitialPoint = false;
     }
 
     // Update is called once per frame
@@ -26,35 +23,35 @@ public class Raycaster : MonoBehaviour
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         Debug.DrawRay(ray.origin,ray.direction*100, Color.cyan);
-
         RaycastHit hit;
-
         
         if(Input.GetMouseButtonDown(0))
         {
-            if (isTouching == false)
-
-            {
                 if(Physics.Raycast(ray, out hit) == true)
                 {
-                    var selection=hit.transform;
+                    var selection = hit.transform;
                     if(selection.CompareTag("Options") || selection.CompareTag("Play") || selection.CompareTag("Exit"))
                     {
-                        agente.destination=hit.point;
+                        agente.destination = hit.point;
                         Debug.DrawRay(ray.origin, ray.direction * hit.distance, Color.red);
                         Debug.Log(hit.transform.gameObject.tag);
                         anim.SetBool("run",true);
                     } 
-                }
+                }     
+        }
+
+        if (isReturningInitialPoint == true)
+        {
+            float dist = Vector3.Distance(initialPoint, transform.position);
+            Debug.Log("return distance: " + dist);
+            if (dist < 0.5f)
+            {
+                anim.SetBool("run", false);
+                isReturningInitialPoint = false;
             }
-            
         }
     }
 
-    public void Pause()
-    {
-        isTouching = false;
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -65,29 +62,24 @@ public class Raycaster : MonoBehaviour
 
         if (other.gameObject.CompareTag("Options"))
         {
-            OptionsCanvas.SetActive(true);
-            isTouching = true;
+            menuManager.ShowOptionsMenu();
         }
 
         if (other.gameObject.CompareTag("Exit"))
         {
-            ExitCanvas.SetActive(true);
+            menuManager.ShowExitMenu();
         }
 
         if (other.gameObject.CompareTag("Play"))
         {
-            
-            PlayCanvas.SetActive(true);
+            menuManager.ShowPlayMenu();
         }
     }
 
-    public void PlayGame()
+    public void ReturnToStartPoint()
     {
-        SceneManager.LoadScene("PSF");
-    }
-
-    public void Exit()
-    {
-        Application.Quit();
+        agente.destination = initialPoint;
+        anim.SetBool("run", true);
+        isReturningInitialPoint = true;
     }
 }

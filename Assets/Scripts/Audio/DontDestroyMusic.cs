@@ -4,17 +4,27 @@ using UnityEngine;
 
 public class DontDestroyMusic : MonoBehaviour
 {
+    public AudioClip menuMusic;
+    private AudioSource audioSource;
+
     private void Awake()
     {
-        GameObject[] musicObj = GameObject.FindGameObjectsWithTag("music");
-
-        if(musicObj.Length > 1)
-        {
-            Destroy(this.gameObject);
-        }
-
         DontDestroyOnLoad(this.gameObject);
+        audioSource = GetComponent<AudioSource>();
+    }
 
+    public void PlayMenuSoundtrack()
+    {
+        audioSource.clip = menuMusic;
+        if (Global.canAudioPlay == true)
+        {
+            audioSource.Play();
+        }
+    }
+
+    public void StopMenuSoundtrack()
+    {
+        audioSource.Stop();
     }
 }
 

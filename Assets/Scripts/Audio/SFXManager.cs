@@ -11,29 +11,41 @@ public class SFXManager : MonoBehaviour
 
     private AudioSource audioSource;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    void Awake()
+    { 
         audioSource = GetComponent<AudioSource>();
     }
 
     public void PlaySliderOn()
     {
-        audioSource.PlayOneShot(SliderOn, 1f);
+        if (Global.canSFXPlay == true)
+        {
+            audioSource.PlayOneShot(SliderOn, 1f);
+        }
     }
 
     public void PlaySliderOff()
     {
-        audioSource.PlayOneShot(SliderOff, 1f);
+        if (Global.canSFXPlay == true)
+        {
+            audioSource.PlayOneShot(SliderOff, 1f);
+        }  
     }
 
     public void PlayStandardClick()
     {
-        audioSource.PlayOneShot(StandardClick, 1f);
+        if (Global.canSFXPlay == true)
+        {
+            audioSource.PlayOneShot(StandardClick, 1f);
+        }
+            
     }
 
     public void PlayCloseButton()
     {
-        audioSource.PlayOneShot(CloseButton, 1f);
+        if (Global.canSFXPlay == true)
+        {
+            audioSource.PlayOneShot(CloseButton, 1f);
+        }   
     }
 }
