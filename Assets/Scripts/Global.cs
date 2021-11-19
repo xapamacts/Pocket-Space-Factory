@@ -20,4 +20,9 @@ public static class Global
     public static List<int> requestBox = new List<int>();
     public static int machine2BoxTime = 0;
     public static int machine2accumulatedBoxesLimit;
+    public static int machine1BoxTime = 0;
+    public static int machine1accumulatedBoxesLimit;
+    public static int machine1BoxFirstTime;
+    public static int machine3BoxTime = 0;
+    public static int machine3accumulatedBoxesLimit;
 }
