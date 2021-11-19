@@ -26,14 +26,14 @@ public class GameManager : MonoBehaviour
 
     private SFXManager sfxManager;
     private Machine2 machine2;
-   // private Machine1 machine1;
+    private Machine1 machine1;
    // private Machine3 machine3;
 
     private void Awake() 
     {
         machine2 = GetComponent<Machine2>();
         //   machine3 = GetComponent<Machine3>();
-        //   machine1 = GetComponent<Machine1>();
+        machine1 = GetComponent<Machine1>();
         sfxManager = GameObject.Find("FXManager").GetComponent<SFXManager>();
         isPlaying = false;
     }
@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
 
    private void StrtGame()
    {
-       //machine1.StartMachine1();
+       machine1.StartMachine1();
        machine2.StartMachine2();
        //machine3.StartMachine3();
        isPlaying = true; 
@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour
     public void PauseGame()
     {
         machine2.PauseMachine2();
-       // machine1.PauseMachine1();
+        machine1.PauseMachine1();
        // machine3.PauseMachine3();
         isPlaying = false;
     }
@@ -99,7 +99,7 @@ public class GameManager : MonoBehaviour
     private void unPauseGame()
     {
         machine2.PlayMachine2();
-       // machine1.PlayMachine1();
+        machine1.PlayMachine1();
        // machine3.PlayMachine3();
         isPlaying = true;
     }
