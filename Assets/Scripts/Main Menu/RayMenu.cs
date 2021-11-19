@@ -10,6 +10,7 @@ public class RayMenu : MonoBehaviour
     private Vector3 initialPoint;
     private bool isReturningInitialPoint;
     private bool isMenuClicked;
+    private int menuOption;
 
     void Start()
     {
@@ -38,6 +39,18 @@ public class RayMenu : MonoBehaviour
                         Debug.DrawRay(ray.origin, ray.direction * hit.distance, Color.red);
                         Debug.Log(hit.transform.gameObject.tag);
                         anim.SetBool("run",true);
+                        if (selection.CompareTag("Options"))
+                        {
+                            menuOption = 1;
+                        }
+                        if (selection.CompareTag("Play"))
+                        {
+                            menuOption = 2;
+                        }
+                        if (selection.CompareTag("Exit"))
+                        {
+                            menuOption = 3;
+                        }
                     } 
                 }     
         }
@@ -63,17 +76,17 @@ public class RayMenu : MonoBehaviour
             isMenuClicked = true;
         }
 
-        if (other.gameObject.CompareTag("Options"))
+        if (other.gameObject.CompareTag("Options") && menuOption == 1)
         {
             menuManager.ShowOptionsMenu();
         }
 
-        if (other.gameObject.CompareTag("Exit"))
+        if (other.gameObject.CompareTag("Exit") && menuOption == 3)
         {
             menuManager.ShowExitMenu();
         }
 
-        if (other.gameObject.CompareTag("Play"))
+        if (other.gameObject.CompareTag("Play") && menuOption == 2)
         {
             menuManager.ShowPlayMenu();
         }
