@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5646198696062520835}
   - component: {fileID: 6781443310381938834}
   - component: {fileID: 5697710031307849314}
-  - component: {fileID: 5429120270492838606}
+  - component: {fileID: 6046266854545416974}
   - component: {fileID: -4984010984987331606}
   m_Layer: 0
   m_Name: RedBox
@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destructionTime: 3
---- !u!114 &5429120270492838606
+--- !u!114 &6046266854545416974
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -87,12 +87,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1241534395767392219}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7669e2bbba1e1b445af5a99bd11683ca, type: 3}
+  m_Script: {fileID: 11500000, guid: 27b88e23c888df549865d27d769505bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxForce: 2650
-  minForce: 1500
-  forceDirectionVector: {x: 1, y: 3, z: 0}
+  maxForce: 0
+  minForce: 0
+  forceDirectionVector: {x: 0, y: 0, z: 0}
+  boxType: 1
 --- !u!65 &-4984010984987331606
 BoxCollider:
   m_ObjectHideFlags: 0

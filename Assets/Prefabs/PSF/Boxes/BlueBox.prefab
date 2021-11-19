@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2420856706329447947}
   - component: {fileID: 6242017986275872540}
   - component: {fileID: 1481032418006853743}
-  - component: {fileID: 9117200377040164819}
+  - component: {fileID: -5770212094973599873}
   - component: {fileID: 5779752708475841247}
   m_Layer: 0
   m_Name: BlueBox
@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destructionTime: 3
---- !u!114 &9117200377040164819
+--- !u!114 &-5770212094973599873
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -87,12 +87,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2937502167711224989}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d39c890211465ed4c856219164936f94, type: 3}
+  m_Script: {fileID: 11500000, guid: 27b88e23c888df549865d27d769505bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxForce: 2650
-  minForce: 1500
-  forceDirectionVector: {x: 1, y: 3, z: 0}
+  maxForce: 0
+  minForce: 0
+  forceDirectionVector: {x: 0, y: 0, z: 0}
+  boxType: 3
 --- !u!65 &5779752708475841247
 BoxCollider:
   m_ObjectHideFlags: 0

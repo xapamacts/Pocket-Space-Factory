@@ -2,24 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RedBoxRejection : MonoBehaviour
+public class BoxRejection : MonoBehaviour
 {
     public float maxForce;
     public float minForce;
     public Vector3 forceDirectionVector;
-
+    public int boxType;
+    
     private GameObject rejectionZone;
+    private GameManager gameManager;
 
     private void Awake()
     {
         rejectionZone = GameObject.Find("BoxRejection");
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     private void OnCollisionEnter(Collision box)
     {
         if (box.gameObject.tag == "BoxRejection")
         {
-            if (GameManager.actualLevel == 1)
+            Debug.Log(gameManager.actualBoxType);
+            if (gameManager.actualBoxType == boxType)
+            {
+                Correct();
+            } else
             {
                 Incorrect();
             }

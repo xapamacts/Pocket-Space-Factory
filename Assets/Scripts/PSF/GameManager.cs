@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class GameManager : MonoBehaviour
@@ -16,19 +17,20 @@ public class GameManager : MonoBehaviour
 
     [Header("State")]
     public bool isPlaying;           //Determina si estamos jugando o no. Hace referencia a cuando ponemos pause.
-    public static int actualLevel;          //Nivel actual.
+    public int actualLevel;          //Nivel actual.
    
     [Header("Machines")]
     public int totalBoxes;
     public int actualBox;
     public int actualBoxType;
 
-
+    private SFXManager sfxManager;
     private Machine2 machine2;
     
    private void Awake() 
     {
         machine2 = GetComponent<Machine2>();
+        sfxManager = GameObject.Find("FXManager").GetComponent<SFXManager>();
         isPlaying = false;
     }
 
@@ -36,8 +38,9 @@ public class GameManager : MonoBehaviour
     {
        Global.score = 0;
        Global.maxTime = 0;
+       boxGameEnd.SetActive(false);
        LoadLevel(Global.level);
-
+ 
        //Providional
        StrtGame();
     }
@@ -75,6 +78,18 @@ public class GameManager : MonoBehaviour
        isPlaying = true; 
    }
 
+    public void PauseGame()
+    {
+        machine2.PauseMachine2();
+        isPlaying = false;
+    }
+
+    private void unPauseGame()
+    {
+        machine2.PlayMachine2();
+        isPlaying = true;
+    }
+
     public void UpdateBox()
     {
         actualBox++;
@@ -86,6 +101,39 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("victory");
         }
+    }
 
+    public void ShowGameOver()
+    {
+        boxLevelFail.GetComponent<Animator>().SetInteger("StateBox", 1);
+    }
+
+    public void ShowLevelCompleted()
+    {
+        boxLevelSuccess.GetComponent<Animator>().SetInteger("StateBox", 1);
+    }
+
+    public void ShowGameCompleted()
+    {
+        boxGameEnd.GetComponent<Animator>().SetInteger("StateBox", 1);
+    }
+
+    //BUTTONS
+    public void GoToMainMenu()
+    {
+        sfxManager.PlayStandardClick();
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void PauseGameButton()
+    {
+        sfxManager.PlayStandardClick();
+        if (isPlaying == true)
+        {
+            PauseGame();
+        } else
+        {
+            unPauseGame();
+        }
     }
 }

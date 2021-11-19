@@ -10,9 +10,19 @@ public class SFXManager : MonoBehaviour
     public AudioClip CloseButton;
 
     private AudioSource audioSource;
+    private static SFXManager musicInstance;
 
     void Awake()
-    { 
+    {
+        DontDestroyOnLoad(this.gameObject);
+        if (musicInstance == null)
+        {
+            musicInstance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         audioSource = GetComponent<AudioSource>();
     }
 

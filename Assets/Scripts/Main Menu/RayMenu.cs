@@ -9,6 +9,7 @@ public class RayMenu : MonoBehaviour
     private NavMeshAgent agente;
     private Vector3 initialPoint;
     private bool isReturningInitialPoint;
+    private bool isMenuClicked;
 
     void Start()
     {
@@ -16,6 +17,7 @@ public class RayMenu : MonoBehaviour
         agente = GetComponent<NavMeshAgent>();
         initialPoint = transform.position;
         isReturningInitialPoint = false;
+        isMenuClicked = false;
     }
 
     // Update is called once per frame
@@ -25,7 +27,7 @@ public class RayMenu : MonoBehaviour
         Debug.DrawRay(ray.origin,ray.direction*100, Color.cyan);
         RaycastHit hit;
         
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0) && isMenuClicked == false)
         {
                 if(Physics.Raycast(ray, out hit) == true)
                 {
@@ -58,6 +60,7 @@ public class RayMenu : MonoBehaviour
         if (other.gameObject.CompareTag("Options") || other.gameObject.CompareTag("Play") || other.gameObject.CompareTag("Exit"))
         {
             anim.SetBool("run", false);
+            isMenuClicked = true;
         }
 
         if (other.gameObject.CompareTag("Options"))
@@ -81,5 +84,6 @@ public class RayMenu : MonoBehaviour
         agente.destination = initialPoint;
         anim.SetBool("run", true);
         isReturningInitialPoint = true;
+        isMenuClicked = false;
     }
 }

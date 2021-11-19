@@ -2,14 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DontDestroyMusic : MonoBehaviour
+public class Music : MonoBehaviour
 {
     public AudioClip menuMusic;
     private AudioSource audioSource;
+    private static Music musicInstance;
 
     private void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(this.gameObject); 
+        if (musicInstance == null)
+        {
+            musicInstance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         audioSource = GetComponent<AudioSource>();
     }
 

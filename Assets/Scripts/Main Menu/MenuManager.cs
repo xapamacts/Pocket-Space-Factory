@@ -23,6 +23,13 @@ public class MenuManager : MonoBehaviour
 
     private Animator anim;
 
+    void Start()
+    {
+        if (Global.isPlayingMusic == false)
+        {
+            AudioOn();
+        }
+    }
 
     //AUDIO
     public void AudioControl()
@@ -56,23 +63,20 @@ public class MenuManager : MonoBehaviour
     public void AudioOn()
     {
         Global.canAudioPlay = true;
-        audioManager.GetComponent<DontDestroyMusic>().PlayMenuSoundtrack();
+        audioManager.GetComponent<Music>().PlayMenuSoundtrack();
+        Global.isPlayingMusic = true;
         Debug.Log("SOUND_ON_2");
     }
 
     public void AudioOff()
     {
         Global.canAudioPlay = false;
-        audioManager.GetComponent<DontDestroyMusic>().StopMenuSoundtrack();
+        audioManager.GetComponent<Music>().StopMenuSoundtrack();
+        Global.isPlayingMusic = false;
         Debug.Log("SOUND_OFF_2");
     }
 
-   void Start()
-   {
-        AudioOn();
-    }
-
-
+ 
     //MENU
     public void ShowPlayMenu()
     {

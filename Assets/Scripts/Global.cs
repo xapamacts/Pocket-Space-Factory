@@ -4,9 +4,10 @@ using UnityEngine;
 
 public static class Global
 {
-    //Geberal
+    //General
     public static bool canAudioPlay = true;
     public static bool canSFXPlay = true;
+    public static bool isPlayingMusic;
 
     //Game
     public static int score;
