@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeliveryZoneMach2 : MonoBehaviour
+public class DeliveryZoneMach3 : MonoBehaviour
 {
      private GameManager gameManager;
 
@@ -14,12 +14,12 @@ public class DeliveryZoneMach2 : MonoBehaviour
 
     public void OnTriggerEnter(Collider other) 
     {
-        if(other.tag == "Box2")
+        if(other.tag == "Box1")
         {
-            if(gameManager.actualBoxType==2)
+            if(gameManager.actualBoxType==3)
             {
-                Debug.Log("CajaAmarilla");
-                Global.score += Global.machine2Score;
+                Debug.Log("CajaRoja");
+                Global.score += Global.machine3Score;
                 gameManager.ShowScoreInfo();
                 gameManager.UpdateBox();
             }

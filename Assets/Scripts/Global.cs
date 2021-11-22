@@ -25,4 +25,7 @@ public static class Global
     public static int machine1BoxFirstTime;
     public static int machine3BoxTime = 0;
     public static int machine3accumulatedBoxesLimit;
+    public static int machine1Score;
+    public static int machine2Score;
+    public static int machine3Score;
 }
