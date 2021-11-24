@@ -91,8 +91,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxForce: 2650
-  minForce: 100
-  forceDirectionVector: {x: 0, y: 1, z: 0}
+  minForce: 1000
+  forceDirectionVector: {x: 1, y: 3, z: 0}
   boxType: 3
 --- !u!65 &5779752708475841247
 BoxCollider:
