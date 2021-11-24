@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
 {
     [Header("UI")]
     public Text scoreText;
+    public Sprite box1;
+    public Sprite box2;
+    public Sprite box3;
 
     [Header("UI Boxes")]
     public GameObject boxLevelFail;
@@ -42,12 +45,16 @@ public class GameManager : MonoBehaviour
     {
         Global.score = 0;
         Global.maxTime = 0;
-        boxGameEnd.SetActive(false);
+      //  boxGameEnd.SetActive(false);
         LoadLevel(Global.level);
 
         //Provisional
         ShowScoreInfo();
         StrtGame();
+            Debug.Log("NIVELLMAX: " + Global.maxLevelPublished);
+            Debug.Log("MAXLVLARRIBAT: " + Global.maxLevel);
+
+
     }
 
    public void LoadLevel(int num)
@@ -59,9 +66,11 @@ public class GameManager : MonoBehaviour
        Global.requestBox.Clear();
        if (num == 1) 
        {
+           Debug.Log("PUNTUACIÓMAXIMAAQUESTNIVELL: "+ Global.maxScore);
+           Debug.Log("NIVELLACTUAL: "+ num);
             Global.requestBox.Add(2);
-            Global.requestBox.Add(2);
-            Global.requestBox.Add(2);
+         //   Global.requestBox.Add(2);
+         //   Global.requestBox.Add(2);
 
             Global.machine1BoxTime = 25;
             Global.machine2BoxTime = 10;
@@ -76,7 +85,22 @@ public class GameManager : MonoBehaviour
         }
         if (num == 2)
         {
+            Debug.Log("NIVELLACTUAL: "+ num);
             //TO DO
+            Global.requestBox.Add(3);
+         //   Global.requestBox.Add(2);
+         //   Global.requestBox.Add(2);
+
+            Global.machine1BoxTime = 25;
+            Global.machine2BoxTime = 10;
+            Global.machine3BoxTime = 15;
+            Global.machine1accumulatedBoxesLimit = 3;
+            Global.machine2accumulatedBoxesLimit = 3;
+            Global.machine3accumulatedBoxesLimit = 3;
+            Global.machine1BoxFirstTime = 6;
+            Global.machine1Score = 10000;
+            Global.machine2Score = 15000;
+            Global.machine3Score = 20000;
         }
        actualBox = 0;
        totalBoxes = Global.requestBox.Count;
@@ -117,7 +141,26 @@ public class GameManager : MonoBehaviour
             Global.score+=1;
         }else
         {
+            if( Global.level < Global.maxLevelPublished){
             Debug.Log("victory");
+           /*  ScoreFinal(); //Suma punts Work in progres
+            if(Global.maxScore < Global.score){
+                Global.maxScore = Global.score; 
+                Debug.Log("HAS SUPERAT EL TEU RECORD: "+ Global.maxScore);
+            } */
+            ShowLevelCompleted();
+                if(Global.maxLevel < Global.level){
+                    Global.maxLevel = Global.level;
+                    Debug.Log("Max Level POSTWIN: " + Global.maxLevel);
+                }
+            Global.level ++;
+            } else{
+                Debug.Log("victoryEPICA");
+                ShowGameCompleted();
+                if(Global.maxLevel < Global.level){
+                    Global.maxLevel = Global.level;
+                }
+            }
         }
     }
 
@@ -144,6 +187,7 @@ public class GameManager : MonoBehaviour
     //BUTTONS
     public void GoToMainMenu()
     {
+        Global.level = 1;
         sfxManager.PlayStandardClick();
         SceneManager.LoadScene("MainMenu");
     }
@@ -158,5 +202,26 @@ public class GameManager : MonoBehaviour
         {
             unPauseGame();
         }
+    }
+
+    public void NextLevel(){
+        LoadLevel(Global.level);      
+        ShowScoreInfo();
+        StrtGame();
+        PlayGame();
+    }
+
+    public void PlayGame()
+    {
+        SceneManager.LoadScene("PSF");
+    }
+
+
+    public void RestartLevel(){
+         SceneManager.LoadScene("PSF");
+    }
+
+    public void ScoreFinal(){
+
     }
 }

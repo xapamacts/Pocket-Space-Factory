@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0011500627, g: 0.00981997, b: 0.05136511, a: 1}
+  m_IndirectSpecularColor: {r: 0.0022080718, g: 0.010144757, b: 0.0497181, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7555,6 +7555,17 @@ MonoBehaviour:
   SliderOff: {fileID: 8300000, guid: 3f8a9c8074b5515408d5c9906d1e1dfd, type: 3}
   StandardClick: {fileID: 8300000, guid: 8efa418d35d2169449cbf1000e04cf3d, type: 3}
   CloseButton: {fileID: 8300000, guid: e6c764b1fa981f34e88e7c473114ba99, type: 3}
+  paso1: {fileID: 8300000, guid: 3b018ac555e3a2745a09e8e256d47d03, type: 3}
+  paso2: {fileID: 8300000, guid: 5a60ed9d8998c4240b449d3354b676e6, type: 3}
+  agarrarCaja: {fileID: 8300000, guid: 0f2c4d1e9cfa1cd4db40ba011e3cc939, type: 3}
+  tirarCaja: {fileID: 8300000, guid: e4a04f39ad315934a83b0473c0f4e7e4, type: 3}
+  naveDespega: {fileID: 8300000, guid: b01c536ff51ff6f48992968e674de99e, type: 3}
+  naveAterriza: {fileID: 8300000, guid: 359e8a5118eb66b488c0d52db8060137, type: 3}
+  trenEnMarcha: {fileID: 8300000, guid: 4034f68b8361e1b4db449b2d212af1d5, type: 3}
+  trenLlegando: {fileID: 8300000, guid: f349fb485bce65d4cb0ef065608dc313, type: 3}
+  trenYendose: {fileID: 8300000, guid: 17baa0d63e38ffe4b8a060b169f3cd5f, type: 3}
+  gruaEnMovimiento: {fileID: 0}
+  cajetinMina: {fileID: 0}
 --- !u!4 &818582287
 Transform:
   m_ObjectHideFlags: 0
